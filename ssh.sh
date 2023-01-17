@@ -40,4 +40,5 @@ pbcopy < ~/.ssh/id_ed25519_$2.pub
 
 # Adding your SSH key to your GitHub account
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-echo "<<< Copied the key automatically with 'pbcopy < ~/.ssh/id_ed25519_$2.pub'\n  -> paste into GitHub under Settings -> Access -> SSH and GPG Keys >>>"
+echo "Copied the key automatically with 'pbcopy < ~/.ssh/id_ed25519_$2.pub'"
+echo "-> paste into GitHub under Settings -> Access -> SSH and GPG Keys ...""
