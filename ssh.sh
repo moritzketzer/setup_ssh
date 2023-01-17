@@ -26,7 +26,10 @@ else
 fi
 
 # Add private key to ssh-agent 
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519_$2
+spawn ssh-add --apple-use-keychain ~/.ssh/id_ed25519_$2
+expect "Enter passphrase for /Users/moritz/.ssh/id_ed25519_$2:"
+send "$3\n";
+
 
 # Copy public key and add to github.com > Settings > SSH and GPG keys
 pbcopy < ~/.ssh/id_ed25519_$2.pub
