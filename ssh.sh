@@ -12,14 +12,17 @@ eval "$(ssh-agent -s)"
 
 if [ -f ~/.ssh/config ]; then
     # Append line to existing config file
-    echo "IdentityFile ~/.ssh/id_ed25519_$2" >> ~/.ssh/config
+    echo "  IdentityFile ~/.ssh/id_ed25519_$2" >> ~/.ssh/config
     
     echo "These keys are currently present:"
-    cat ~/.ssh
+    ls -lA ~/.ssh
+    
+    echo "The updated config file is as follows:"
+    cat ~/.ssh/config
     
 else
     # Create config file with line
-    echo "Host *\nAddKeysToAgent yes\nUseKeychain yes\nIdentityFile ~/.ssh/id_ed25519_$2" > ~/.ssh/config
+    echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519_$2" > ~/.ssh/config
 fi
 
 # Add private key to ssh-agent 
