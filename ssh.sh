@@ -33,11 +33,9 @@ expect "Enter passphrase for /Users/moritz/.ssh/id_ed25519_$2:"
 send "$3\n";
 EOF
 
-echo "\n"
-
 # Copy public key and add to github.com > Settings > SSH and GPG keys
 pbcopy < ~/.ssh/id_ed25519_$2.pub
 
 # Adding your SSH key to your GitHub account
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-echo "\n<<< Copied the key automatically with 'pbcopy < ~/.ssh/id_ed25519_$2.pub'\n  -> paste into GitHub under Settings -> Access -> SSH and GPG Keys >>>"
+echo "<<< Copied the key automatically with 'pbcopy < ~/.ssh/id_ed25519_$2.pub'\n  -> paste into GitHub under Settings -> Access -> SSH and GPG Keys >>>"
