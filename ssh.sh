@@ -25,14 +25,14 @@ else
     echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519_$2" > ~/.ssh/config
 fi
 
-# Add private key to ssh-agent 
-
 expect <<EOF
 spawn ssh-add --apple-use-keychain /Users/moritz/.ssh/id_ed25519_$2
 expect "Enter passphrase for /Users/moritz/.ssh/id_ed25519_$2:"
 send "$3\n";
 exit
 EOF
+
+echo "\nAdded key to ssh-agent."
 
 # Copy public key and add to github.com > Settings > SSH and GPG keys
 pbcopy < ~/.ssh/id_ed25519_$2.pub
