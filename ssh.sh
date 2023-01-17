@@ -31,6 +31,7 @@ expect <<EOF
 spawn ssh-add --apple-use-keychain /Users/moritz/.ssh/id_ed25519_$2
 expect "Enter passphrase for /Users/moritz/.ssh/id_ed25519_$2:"
 send "$3\n";
+exit
 EOF
 
 # Copy public key and add to github.com > Settings > SSH and GPG keys
