@@ -28,7 +28,7 @@ fi
 # Add private key to ssh-agent 
 
 expect <<EOF
-spawn ssh-add --apple-use-keychain ~/.ssh/id_ed25519_$2
+spawn ssh-add --apple-use-keychain /Users/moritz/.ssh/id_ed25519_$2
 expect "Enter passphrase for /Users/moritz/.ssh/id_ed25519_$2:"
 send "$3\n";
 EOF
