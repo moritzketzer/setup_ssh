@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+echo "These keys are currently present"
+
+ls -al ~/.ssh
+
 echo "Generating a new SSH key for GitHub"
 
 # Generating a new SSH key
