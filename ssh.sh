@@ -33,9 +33,6 @@ expect "Enter passphrase for /Users/moritz/.ssh/id_ed25519_$2:"
 send "$3\n";
 EOF
 
-
-
-
 # Copy public key and add to github.com > Settings > SSH and GPG keys
 pbcopy < ~/.ssh/id_ed25519_$2.pub
 
