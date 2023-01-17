@@ -1,6 +1,6 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
-echo "Generating a new SSH key for GitHub..."
+echo "Generating a new SSH key for GitHub, please use a passphrase ..."
 
 # Generating a new SSH key
 # https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
@@ -18,7 +18,7 @@ Host *
 EOF
 
 # Add private key to ssh-agent 
-ssh-add -K ~/.ssh/id_ed25519
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
 # Copy public key and add to github.com > Settings > SSH and GPG keys
 pbcopy < ~/.ssh/id_rsa.pub
