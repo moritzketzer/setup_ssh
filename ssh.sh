@@ -1,9 +1,5 @@
 #!/usr/bin/env sh
 
-echo "These keys are currently present"
-
-ls -al ~/.ssh
-
 echo "Generating a new SSH key for GitHub"
 
 # Generating a new SSH key
@@ -14,12 +10,17 @@ ssh-keygen -t ed25519 -C $1 -f ~/.ssh/id_ed25519_$2 -N $3
 # https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent
 eval "$(ssh-agent -s)"
 
-<< EOF > ~/.ssh/config
-Host *
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519_$2
-EOF
+if [ -f ~/.ssh/config ]; then
+    # Append line to existing config file
+    echo "IdentityFile ~/.ssh/id_ed25519_$2" >> ~/.ssh/config
+    
+    echo "These keys are currently present:"
+    cat ~/.ssh
+    
+else
+    # Create config file with line
+    echo "Host *\nAddKeysToAgent yes\nUseKeychain yes\nIdentityFile ~/.ssh/id_ed25519_$2" > ~/.ssh/config
+fi
 
 # Add private key to ssh-agent 
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519_$2
