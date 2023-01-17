@@ -1,4 +1,4 @@
-#!/usr/bin/env sh -i
+#!/usr/bin/env sh
 
 echo "Generating a new SSH key for GitHub, please use a passphrase ..."
 
