@@ -32,7 +32,8 @@ send "$3\n";
 exit
 EOF
 
-echo "\nAdded key to ssh-agent."
+echo "passphrase entered automatically ..."
+echo "Added key to ssh-agent."
 
 # Copy public key and add to github.com > Settings > SSH and GPG keys
 pbcopy < ~/.ssh/id_ed25519_$2.pub
